@@ -36,5 +36,25 @@
     <!-- rest of your website -->
   </section>
 </body>
+<script>
+  const canvas = document.getElementById("scene");
+  const ctx = canvas.getContext("2d");
+  
+  const frameCount = 300;
+  const images = [];
+  const imageSeq = { frame: 0 };
+  
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = `frames/frame_${String(i).padStart(4, "0")}.png`;
+    images.push(img);
+  }
+  
+  images[0].onload = () => drawFrame(0);
+  
+  function drawFrame(index) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(images[index], 0, 0, canvas.width, canvas.height);
+  }
 
-
+</script>
