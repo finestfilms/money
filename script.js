@@ -53,8 +53,8 @@ function drawFrame(index) {
 
   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-  // "contain" scaling (fits whole image)
-  const scale = Math.min(
+  // "cover" scaling (fill width/height fully)
+  const scale = Math.max(
     canvasWidth / img.width,
     canvasHeight / img.height
   );
@@ -62,8 +62,11 @@ function drawFrame(index) {
   const drawWidth = img.width * scale;
   const drawHeight = img.height * scale;
 
+  // Center horizontally
   const x = (canvasWidth - drawWidth) / 2;
-  const y = (canvasHeight - drawHeight) / 2;
+
+  // Anchor to bottom
+  const y = canvasHeight - drawHeight;
 
   ctx.drawImage(img, x, y, drawWidth, drawHeight);
 }
