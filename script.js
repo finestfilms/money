@@ -99,5 +99,5 @@ tl.to("#title", {
   opacity: 1,
   y: 0,
   ease: "power1.out"
-}, 0.95); // appears at 80% of scroll
+}, 0.70); // appears at 80% of scroll
 
