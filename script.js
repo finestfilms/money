@@ -76,30 +76,28 @@ function drawFrame(index) {
 
 /* === SCROLL → FRAMES === */
 
-gsap.to(seq, {
-  frame: frameCount - 1,
-  snap: "frame",
-  ease: "none",
+const tl = gsap.timeline({
   scrollTrigger: {
     trigger: "#cutscene",
     start: "top top",
-    end: "bottom top",
+    end: "+=250%", // how long the whole scene lasts
     scrub: true,
     pin: true
-  },
-  onUpdate: () => drawFrame(seq.frame)
-});
-
-/* === TITLE APPEAR === */
-
-gsap.to("#title", {
-  opacity: 1,
-  y: -30,
-  scrollTrigger: {
-    trigger: "#cutscene",
-    start: "60% center",
-    end: "80% center",
-    scrub: true
   }
 });
+
+// 1️⃣ Play the frame sequence
+tl.to(seq, {
+  frame: frameCount - 1,
+  snap: "frame",
+  ease: "none",
+  onUpdate: () => drawFrame(seq.frame)
+}, 0);
+
+// 2️⃣ Fade in the title near the end
+tl.to("#title", {
+  opacity: 1,
+  y: -30,
+  ease: "power1.out"
+}, 0.8); // appears at 80% of scroll
 
