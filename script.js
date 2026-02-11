@@ -97,7 +97,7 @@ tl.to(seq, {
 // 2️⃣ Fade in the title near the end
 tl.to("#title", {
   opacity: 1,
-  y: -30,
+  y: 0,
   ease: "power1.out"
 }, 0.8); // appears at 80% of scroll
 
