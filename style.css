@@ -6,7 +6,7 @@
 
 body {
   font-family: system-ui, sans-serif;
-  background: red;
+  background: MediumSpringGreen;
   color: white;
 }
 
@@ -53,6 +53,6 @@ body {
 #content {
   min-height: 150vh;
   padding: 10vh 10vw;
-  background: #111;
+  background: Aquamarine;
 }
 
