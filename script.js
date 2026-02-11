@@ -80,7 +80,7 @@ const tl = gsap.timeline({
   scrollTrigger: {
     trigger: "#cutscene",
     start: "top top",
-    end: "+=230%", // how long the whole scene lasts
+    end: "+=260%", // how long the whole scene lasts
     scrub: true,
     pin: true
   }
