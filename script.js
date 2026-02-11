@@ -69,7 +69,7 @@ function drawFrame(index) {
   const overflowY = drawHeight - canvasHeight;
   
   // Shift down 40% of the overflow
-  const y = -(overflowY * 0.35);
+  const y = -(overflowY * 0.40);
 
   ctx.drawImage(img, x, y, drawWidth, drawHeight);
 }
