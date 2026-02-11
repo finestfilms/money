@@ -1,89 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finest Films</title>
-<style>
-  body, html {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #container {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    z-index: 0;
-  }
-
-  #title {
-    color: white;
-    font-size: 48px;
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  .letter {
-    position: absolute;
-    color: white;
-    font-size: 24px;
-  }
-
-  @keyframes fall {
-    from {
-      top: -50px;
-      opacity: 0;
-      transform: rotate(0deg);
-    }
-    to {
-      top: 100%;
-      opacity: 1;
-      transform: rotate(360deg);
-    }
-  }
-</style>
-</head>
 <body>
-<div id="container">
-  <div id="title">Text Adventures</div>
-</div>
-<script>
-  function createLetter() {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-    const letterElement = document.createElement('div');
-    letterElement.textContent = randomLetter;
-    letterElement.classList.add('letter');
-    
-    const screenWidth = window.innerWidth;
-    const randomX = Math.random() * screenWidth;
-    
-    letterElement.style.left = randomX + 'px';
-    document.getElementById('container').appendChild(letterElement);
-    
-    const animationDuration = 5 + Math.random() * 5;
-    letterElement.style.animation = `fall ${animationDuration}s linear`;
+  <section id="cutscene">
+    <canvas id="scene"></canvas>
+    <div id="title">YOUR TITLE</div>
+  </section>
 
-    setTimeout(() => {
-      letterElement.remove();
-    }, animationDuration * 1000);
-  }
-
-  setInterval(createLetter, 500);
-</script>
+  <section id="content">
+    <!-- rest of your website -->
+  </section>
 </body>
-</html>
-
