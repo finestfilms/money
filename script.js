@@ -14,9 +14,14 @@ const seq = { frame: 0 };
 
 function resizeCanvas() {
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = window.innerWidth * dpr;
-  canvas.height = window.innerHeight * dpr;
+
+  const rect = canvas.getBoundingClientRect();
+
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
   drawFrame(seq.frame);
 }
 
@@ -43,16 +48,19 @@ function drawFrame(index) {
   const img = images[index];
   if (!img) return;
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const canvasWidth = canvas.clientWidth;
+  const canvasHeight = canvas.clientHeight;
 
-  // cover behavior
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+  // "cover" scaling (like CSS background-size: cover)
   const scale = Math.max(
-    canvas.width / img.width,
-    canvas.height / img.height
+    canvasWidth / img.width,
+    canvasHeight / img.height
   );
 
-  const x = (canvas.width - img.width * scale) / 2;
-  const y = (canvas.height - img.height * scale) / 2;
+  const x = (canvasWidth - img.width * scale) / 2;
+  const y = (canvasHeight - img.height * scale) / 2;
 
   ctx.drawImage(
     img,
