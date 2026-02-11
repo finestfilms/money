@@ -28,9 +28,11 @@ body {
 
 #title {
   position: absolute;
-  bottom: 20%;
-  width: 100%;
-  transform: translate(-50%, -50%);
+  inset: 0;               /* top:0 left:0 right:0 bottom:0 */
+  display: flex;
+  align-items: center;    /* vertical center */
+  justify-content: center;/* horizontal center */
+  flex-direction: column;
   text-align: center;
   opacity: 0;
   pointer-events: none;
