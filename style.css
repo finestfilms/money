@@ -52,7 +52,7 @@ body {
 
 #content {
   min-height: 150vh;
-  padding: 10vh;
+  padding: 10vh 10vw;
   background: Aquamarine;
 }
 
