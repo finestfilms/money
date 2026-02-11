@@ -3,6 +3,8 @@ gsap.registerPlugin(ScrollTrigger);
 const canvas = document.getElementById("scene");
 const ctx = canvas.getContext("2d");
 
+const isMobile = window.innerWidth < 768;
+
 const startFrame = 20;
 const endFrame = 150;
 const frameCount = endFrame - startFrame + 1;
@@ -59,8 +61,10 @@ function drawFrame(index) {
     canvasHeight / img.height
   );
 
-  const drawWidth = img.width * scale;
-  const drawHeight = img.height * scale;
+  const resolutionScale = isMobile ? 0.6 : 1;
+  const drawWidth = img.width * scale * resolutionScale;
+  const drawHeight = img.height * scale * resolutionScale;
+
 
   // Center horizontally
   const x = (canvasWidth - drawWidth) / 2;
