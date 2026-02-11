@@ -80,7 +80,7 @@ const tl = gsap.timeline({
   scrollTrigger: {
     trigger: "#cutscene",
     start: "top top",
-    end: "+=200%", // how long the whole scene lasts
+    end: "+=230%", // how long the whole scene lasts
     scrub: true,
     pin: true
   }
@@ -99,5 +99,5 @@ tl.to("#title", {
   opacity: 1,
   y: 0,
   ease: "power1.out"
-}, 0.8); // appears at 80% of scroll
+}, 0.95); // appears at 80% of scroll
 
