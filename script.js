@@ -53,22 +53,19 @@ function drawFrame(index) {
 
   ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-  // "cover" scaling (like CSS background-size: cover)
-  const scale = Math.max(
+  // "contain" scaling (fits whole image)
+  const scale = Math.min(
     canvasWidth / img.width,
     canvasHeight / img.height
   );
 
-  const x = (canvasWidth - img.width * scale) / 2;
-  const y = (canvasHeight - img.height * scale) / 2;
+  const drawWidth = img.width * scale;
+  const drawHeight = img.height * scale;
 
-  ctx.drawImage(
-    img,
-    x,
-    y,
-    img.width * scale,
-    img.height * scale
-  );
+  const x = (canvasWidth - drawWidth) / 2;
+  const y = (canvasHeight - drawHeight) / 2;
+
+  ctx.drawImage(img, x, y, drawWidth, drawHeight);
 }
 
 /* === SCROLL → FRAMES === */
