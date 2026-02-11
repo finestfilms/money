@@ -13,7 +13,6 @@ body {
 /* === CUTSCENE SECTION === */
 
 #cutscene {
-  height: 200vh; /* controls how much scroll time the cutscene gets */
   position: relative;
 }
 
