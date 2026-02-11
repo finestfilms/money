@@ -81,7 +81,7 @@ const tl = gsap.timeline({
     trigger: "#cutscene",
     start: "top top",
     end: "+=320%", // how long the whole scene lasts
-    scrub: true,
+    scrub: 0.5,
     pin: true
   }
 });
