@@ -65,8 +65,11 @@ function drawFrame(index) {
   // Center horizontally
   const x = (canvasWidth - drawWidth) / 2;
 
-  // Anchor to bottom
-  const y = canvasHeight - drawHeight;
+  // How much the image overflows vertically
+  const overflowY = drawHeight - canvasHeight;
+  
+  // Shift down 40% of the overflow
+  const y = -(overflowY * 0.4);
 
   ctx.drawImage(img, x, y, drawWidth, drawHeight);
 }
