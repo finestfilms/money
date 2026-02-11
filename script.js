@@ -3,9 +3,9 @@ gsap.registerPlugin(ScrollTrigger);
 const canvas = document.getElementById("scene");
 const ctx = canvas.getContext("2d");
 
-const frameCount = 300; // CHANGE THIS
+const frameCount = 131; // CHANGE THIS
 const images = [];
-const seq = { frame: 0 };
+const seq = { frame: 20 };
 
 /* === CANVAS SIZE === */
 
